@@ -1,0 +1,38 @@
+import streamlit as st
+import whisper
+import os
+
+# Instellingen voor de webpagina
+st.set_page_config(page_title="Aura - Transcriptie AI", page_icon="⚡️")
+
+st.title("⚡️ Aura")
+st.write("Upload een audiobestand en krijg een transcript.")
+
+# Upload audio via Streamlit
+uploaded_file = st.file_uploader("Upload een audiofile", type=["mp3", "wav", "m4a", "mp4"])
+
+if uploaded_file is not None:
+    # Sla het bestand tijdelijk op
+    temp_audio_path = "temp_audio.m4a"
+    with open(temp_audio_path, "wb") as f:
+        f.write(uploaded_file.getbuffer())
+
+    st.write("✅ Bestand geüpload, verwerken...")
+
+    # Laad Whisper-model
+    model = whisper.load_model("small")  # Opties: "tiny", "small", "medium", "large"
+
+    # Transcribeer het bestand
+    result = model.transcribe(temp_audio_path, language="nl")
+
+    # Toon transcriptie
+    st.subheader("Je transscript is klaar")
+    st.text_area("Transcript:", result["text"], height=300)
+
+    # Optioneel: Opslaan en downloaden
+    with open("transcript.txt", "w") as f:
+        f.write(result["text"])
+    st.download_button("📥 Download transcript", data=result["text"], file_name="transcript.txt")
+
+    # Opruimen
+    os.remove(temp_audio_path)
