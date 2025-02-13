@@ -1,6 +1,6 @@
 - 👋 Hi, I’m @kili-d
 - 👀 I’m interested in tech, content, marketing & creativity.
-- 🌱 I’m currently learning about NFTs & web3.
+- 🌱 I’m currently learning about generative AI, LLMs and no-coding.
 - 📫 How to reach me: https://twitter.com/kiliand
 
 <!---
