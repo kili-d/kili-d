@@ -1,4 +1,4 @@
-- 👋 Hi, I’m @kili-d
+- 👋 Hi, I’m Kili
 - 👀 I’m interested in tech, content, marketing & creativity.
 - 🌱 I’m currently learning about generative AI, LLMs and no-coding.
 - 📫 How to reach me: https://twitter.com/kiliand
